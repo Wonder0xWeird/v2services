@@ -1,0 +1,8 @@
+{
+	"crons": [
+		{
+			"path": "/api/updateV2Sessions",
+			"schedule": "*/5 * * * *"
+		}
+	]
+}
