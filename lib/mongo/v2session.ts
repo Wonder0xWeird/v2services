@@ -3,12 +3,15 @@ import mongoose from "mongoose"
 /*** V2SESSION ***/
 interface IV2Session {
 	_id: mongoose.Types.ObjectId
-	// PVE
+	// SHARED KEYS
 	battleId: number
 	battle_uuid: string
 	game_started: string
 	game_ended: string
 	winner: string
+	did_player_surrender: boolean
+
+	// PVE KEYS
 	client_id: string
 	team_id: string
 	fighters: {
@@ -26,10 +29,7 @@ interface IV2Session {
 		result: number
 	}
 
-	// SHARED
-	did_player_surrender: boolean
-
-	// PVP
+	// PVP KEYS
 	first_client_id: string
 	first_team_id: string
 	first_team_fighters: number[]
@@ -56,6 +56,7 @@ interface IV2Session {
 		result: number
 	}
 }
+
 const v2sessionSchema = new mongoose.Schema<IV2Session>({
 	battleId: Number,
 	battle_uuid: String,

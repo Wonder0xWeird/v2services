@@ -40,6 +40,7 @@ const handler = async (
 				...modeQuery,
 			})
 				.limit(numSessions)
+				.sort({ battleId: 1 })
 				.lean()
 		else {
 			sessions = await V2Session.find({
